@@ -47,6 +47,7 @@ def update_bib_with_doi(input_file, output_file):
         arxiv_match = arxiv_pattern.match(journal)
         doi = entry.get('doi', '')
         if doi != '':
+            logging.info(f'{i:4d}, {id}: PRESENT')
             doi_present += 1
         else:
             retrieved_title, retrieved_doi = query_crossref(title, author)
